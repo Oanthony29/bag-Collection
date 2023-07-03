@@ -5,8 +5,10 @@ const app = require('./app');
 
 const DB = process.env.DATABASE
 
-mongoose.connect(DB
-    ).then(()=>{
+mongoose.connect(DB,{
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+} ).then(()=>{
         console.log('Mongoose Connected.')
     }).then(()=>{
                 app.listen(process.env.PORT || 9090,()=>{
